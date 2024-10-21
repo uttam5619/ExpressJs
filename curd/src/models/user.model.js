@@ -10,6 +10,7 @@ const userSchema = new Schema({
     },
     username:{
         type: 'string',
+        index: true,
         required: true,
         unique: true,
         lowercase: true,
@@ -31,16 +32,35 @@ const userSchema = new Schema({
             /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
             'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character',
         ],
-        validate: {
+        passwordStrength: {
             validator: function(v) {
                 return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(v);
             },
             message: props => `${props.value} is not a strong enough password!`,
         },
     },
+    countryCode:{
+        type: 'string',
+        required: true,
+        default: '+91',
+        enum: ['+91']
+    },
+    phoneNumber:{
+        type: 'string',
+        required: true,
+        validateTheDigits: {
+            validator: function(v) {
+            // Check if the phone number has exactly 10 digits
+            return /^\d{10}$/.test(v);
+            },
+            message: props => `${props.value} is not a valid phone number! It must be exactly 10 digits.`
+        }
+    },
     gender:{
         type: 'string',
-        enum: ['male', 'female', 'other']
+        required:'true',
+        enum: ['male', 'female', 'other'],
+        default: 'male'
     },
     /*
     country:[
@@ -50,5 +70,14 @@ const userSchema = new Schema({
 
     ]
     */
+   profilePicture:{
+
+   },
+   avatarr:{
+
+   }
 
 },{timestamps:true})
+
+const User = model('user', userSchema)
+module.exports = User
