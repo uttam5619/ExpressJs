@@ -1,2 +1,2 @@
 npm i body-parser (`body-parser`) -> parses the req.body.
-npm i cookieparser (`cookieparser`) -> parses the cookie
+npm i cookieparser (`cookie-parser`) -> parses the cookie

@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs')
 const User = require('../models/user.model')
 
 const isLoggedIn = async (req, res)=>{
+    
     const {token} = req.cookies
     console.log(`token: ${token}`)
 
