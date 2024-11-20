@@ -44,11 +44,11 @@ const feedOnHome = (req,res)=>{
 
 
 export {
-    like,
+    like,          
     dislike,
     comment,
     getComments,
     replies,
     getReplies,
-    feedOnHome
+    feednHome
 }
