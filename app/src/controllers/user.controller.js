@@ -2,7 +2,7 @@
 
 
 const getUser =(req, res)=>{
-
+    
 }
 
 const getAllUsers = (req, res)=>{

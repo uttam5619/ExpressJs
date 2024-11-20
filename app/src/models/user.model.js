@@ -10,11 +10,28 @@ const userSchema = new Schema({
     email:{
         type: 'string',
         required: true,
+        unique: true,
     },
     password:{
         type: 'string',
         required: true,
-    }
+    },
+    followers:[
+        {
+            follower:{
+                type: Schema.Types.ObjectId,
+                ref: 'users'
+            }
+        }
+    ],
+    followings:[
+        {
+            following:{
+                type: Schema.Types.ObjectId,
+                ref:'users'
+            }
+        }
+    ]
 
 },{timestamps: true})
 

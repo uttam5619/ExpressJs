@@ -11,9 +11,9 @@ const replySchema = new Schema({
         ref: 'comment'
     },
     textReply:{
-        type:string
+        type:'string'
     },
-    imagereply:{
+    imageReply:{
         type: 'sting'
     },
     replies:[
