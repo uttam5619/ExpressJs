@@ -9,7 +9,8 @@ const postSchema = new Schema({
     description:{
         type: 'string',
         required: false,
-    }
+    },
+    
 
 })
 
